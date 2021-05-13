@@ -4,7 +4,12 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :channels
+  resources :channels do
+    member do
+      post :leave
+    end
+  end
+  
   root to: "channels#index"
 
   resources :messages, only: [:create]

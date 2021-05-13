@@ -40,14 +40,15 @@ class ChannelsController < ApplicationController
   def edit
   end
 
-  def join
-    if UserChannel.create(channel_id: params[:id], user_id: params[:user_id])
-      flash[:success]= t('create.success', record: "room")
-    else
-      flash[:error]= t('create.error', record: "room")
-    end
-    redirect_to root_path
+  def show
+    raise "Invalid user ID" if params[:user_id].to_i != current_user.id
+    uc = UserChannel.find_or_create_by!(channel_id: params[:id], user_id: params[:user_id])
+    @messages = Message.where(channel_id: @channel.id).where('created_at >= ?', uc.created_at)
+  end
 
+  def leave
+    UserChannel.find_by(channel_id: params[:id], user_id: params[:user_id])
+    redirect_to root_path
   end
 
   private

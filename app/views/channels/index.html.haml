@@ -17,7 +17,7 @@
     - @channels.each.with_index(1) do |channel, index|
       %tr
         %th= index
-        %td= link_to channel.name, channel_path(channel)
+        %td= link_to channel.name, channel_path(channel, user_id: current_user.id)
         %td= channel.description
         %td
           - if @admin
