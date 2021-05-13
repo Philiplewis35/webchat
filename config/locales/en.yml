@@ -30,4 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  create:
+    success: "%{record} was successfully created"
+    error: "%{record} could not be created, please try again later"
+  update:
+    success: "%{record} was successfully updated"
+    error: "%{record} could not be updated, please try again later"
+  destroy:
+    success: "%{record} was successfully destroyed"
+    error: "%{record} could not be destroyed, please try again later"

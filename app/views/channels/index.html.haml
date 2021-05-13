@@ -1,0 +1,25 @@
+.row
+  .col-10
+    %h2 Channels
+  - if @admin
+    .col-2
+      .float-right
+        = link_to "Create Channel", new_channel_path, class: "btn btn-primary btn-sm mt-2"
+
+%table.table
+  %thead
+    %tr
+      %th #
+      %th Name
+      %th Description
+      %th
+  %tbody
+    - @channels.each.with_index(1) do |channel, index|
+      %tr
+        %th= index
+        %td= link_to channel.name, channel_path(channel)
+        %td= channel.description
+        %td
+          - if @admin
+            = link_to "Edit", edit_channel_path(channel)
+            = link_to "Delete", channel_path(channel), method: :delete, class: "pl-3"

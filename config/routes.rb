@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :channel
+  resources :channels
   root to: "channels#index"
 end

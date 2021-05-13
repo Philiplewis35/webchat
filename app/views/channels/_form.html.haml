@@ -1,0 +1,11 @@
+= form_with model: @channel do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, required: true, class: "form-control"
+
+  .form-group
+    = f.label :description
+    = f.text_field :description, required: true, class: "form-control"
+
+  .form-group
+    = f.submit "Create channel", { class: 'btn btn-primary' }
