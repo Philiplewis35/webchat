@@ -1,0 +1,3 @@
+%h1= "Hi #{@user_email}"
+%p= "#{@weekly} messages ave been exchanged in the last week."
+%p= "#{@since_last} since your last message on the 1st of February."
