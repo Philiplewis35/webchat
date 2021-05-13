@@ -40,6 +40,16 @@ class ChannelsController < ApplicationController
   def edit
   end
 
+  def join
+    if UserChannel.create(channel_id: params[:id], user_id: params[:user_id])
+      flash[:success]= t('create.success', record: "room")
+    else
+      flash[:error]= t('create.error', record: "room")
+    end
+    redirect_to root_path
+
+  end
+
   private
 
   def set_channel
