@@ -10,10 +10,14 @@
 
 %h3 Chat
 .card.p-3.m-3
+  .chat-container
+    - @messages.each do |message|
+      .message.card.p3
+        %p="#{message.user.email} (#{message.created_at.strftime("%H:%M:%S")}): #{message.text}"
 
 %h3 Send Message
 .card.p-3.m-3
-  = form_with url: messages_path, method: :post, remote: true, class: 'send-message' do |f|
+  = form_with model: Message.new, class: 'send-message' do |f|
     = f.hidden_field :user_id, {value: current_user.id }
     = f.hidden_field :channel_id, {value:  @channel.id }
 

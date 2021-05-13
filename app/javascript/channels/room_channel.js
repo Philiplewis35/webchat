@@ -16,12 +16,13 @@ function setup_room() {
 
     disconnected() {
       // so and so left
+      // destory user channel
+
       // Called when the subscription has been terminated by the server
     },
 
     received(data) {
-      console.log(data)
-      // display message
+      $('.chat-container').append(data["html"])
       // Called when there's incoming data on the websocket for this channel
     }
   });

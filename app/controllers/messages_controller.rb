@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
 
   def create
-    Message.create!(message_params)
-    ActionCable.server.broadcast("room_channel_#{message_params[:channel_id]}", message: message_params[:text])
-    head :ok
+    message = Message.create!(message_params)
+    ActionCable.server.broadcast("room_channel_#{message.channel_id}", { html: render_to_string(partial: "show", locals: { message: message }) })
+    # TODO: Error handling
   end
 
   private
