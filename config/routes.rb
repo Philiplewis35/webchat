@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 
   resources :channels
   root to: "channels#index"
+
+  resources :messages, only: [:create]
 end

@@ -1,4 +1,20 @@
 .channel_container{"data-channel-id" => @channel.id}
 
-<h1>Channel#show</h1>
-<p>Find me in app/views/channel/show.html.erb</p>
+%h2= @channel.name
+%p= @channel.description
+
+%h3 Chat
+.card.p-3.m-3
+
+%h3 Send Message
+.card.p-3.m-3
+  = form_with url: messages_path, method: :post, remote: true, class: 'send-message' do |f|
+    = f.hidden_field :user_id, {value: current_user.id }
+    = f.hidden_field :channel_id, {value:  @channel.id }
+
+    .form-group
+      = f.label :text
+      = f.text_field :text, required: true, class: "form-control"
+
+    .form-group
+      = f.submit "Send message", { class: 'btn btn-primary btn-sm mt-2' }
