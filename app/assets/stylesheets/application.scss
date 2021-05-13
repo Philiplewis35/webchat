@@ -18,3 +18,17 @@
  body {
    margin: 0.5em 2em 2em 2em;
  }
+
+ .navbar {
+   margin-bottom: 1em;
+ }
+
+ .navbar_item {
+   text-decoration: none;
+   color: black !important;
+ }
+
+ .navbar_item:visited {
+   text-decoration: none;
+   color: black !important;
+ }

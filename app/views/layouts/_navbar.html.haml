@@ -1,0 +1,13 @@
+%nav.navbar.navbar-expand-md.navbar-light.bg-light
+  %a.navbar-brand{:href => "#"} Navbar
+  %button.navbar-toggler{"data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav
+      %li.nav-item
+        = link_to "Channels", root_path, class: 'nav-link'
+      %li.nav-item
+      - if current_user
+        = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link'
+      - else
+        = link_to 'Sign in', new_user_session_path, class: 'nav-link'

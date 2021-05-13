@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # user auth
 gem 'devise'
 
+# alternate syntax to erb
+gem 'haml'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
